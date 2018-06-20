@@ -1,0 +1,15 @@
+﻿brand,brand_key,Category,category_key,Vertical,Vertical_key,Product_key
+GE,100,cooking appliances,1000,appliances,9000,abcd100
+GE,100,cooking appliances,1000,appliances,9000,abcd200
+GE,100,cooking appliances,1000,appliances,9000,abcd300
+GE,100,cooking appliances,1000,appliances,9000,abcd400
+Sharp,200,television,2000,electronics,8000,200efgh
+Sharp,200,television,2000,electronics,8000,400efgh
+Sharp,200,television,2000,electronics,8000,600efgh
+LG,300,refrigerators,3000,appliances,7000,part150
+LG,300,refrigerators,3000,appliances,7000,part300
+LG,300,refrigerators,3000,electronics,7000,part450
+Panasonic,400,dvd player,4000,electronics,6000,cart800
+Panasonic,400,dvd player,4000,electronics,6000,cart1600
+Panasonic,400,dvd player,4000,electronics,6000,cart1800
+Panasonic,400,dvd player,4000,electronics,6000,cart2400
