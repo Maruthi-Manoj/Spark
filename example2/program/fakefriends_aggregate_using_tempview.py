@@ -3,7 +3,7 @@ import datetime
 from datetime import date
 #function to get filename as change_capture_weekoftheyear_yyyymmdd.csv
 def filename():
-        temp = "fakefriends_aggregate_using_dataframes"
+        temp = "fakefriends_aggregate_using_tempview"
         now = datetime.datetime.now()
         weekoftheyear = str(now.isocalendar()[1])
         currentdate = now.strftime("%Y%m%d")
@@ -24,6 +24,7 @@ if __name__== "__main__":
 	
 	fakefriends.printSchema()
 	temp = filename()
-	avg_friends_by_age = fakefriends.groupBy('age').avg('no_of_friends')
+        fakefriends.createOrReplaceTempView("fakefriends")
+	avg_friends_by_age = spark.sql("SELECT age, avg(no_of_friends) FROM fakefriends GROUP BY age ")		
 	avg_friends_by_age.coalesce(1).write.option("header","true").csv("output/"+temp)
 	

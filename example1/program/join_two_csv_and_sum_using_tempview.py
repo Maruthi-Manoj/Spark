@@ -1,9 +1,9 @@
 from pyspark.sql import SparkSession
 import datetime
 from datetime import date
-#function to get filename as change_capture_weekoftheyear_yyyymmdd.csv
+#function to get filename as join_two_csv_and_sum_using_tempview__weekoftheyear_yyyymmdd.csv
 def filename():
-        temp = "join_two_csv_and_aggregate_"
+        temp = "join_two_csv_and_sum_using_tempview_"
         now = datetime.datetime.now()
         weekoftheyear = str(now.isocalendar()[1])
         currentdate = now.strftime("%Y%m%d")
@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	
 	spark = SparkSession \
 		  .builder \
-		  .appName("join two csv and aggregate") \
+		  .appName("join two csv and sum using tempview") \
 		  .master("local[*]") \
                   .getOrCreate()
         hierarchical_data = spark.read \
@@ -27,11 +27,9 @@ if __name__ == "__main__":
 				.csv("data/product_sales_data.csv")
 	hierarchical_data.printSchema()
 	product_sales_data.printSchema()
-	joinandselect = hierarchical_data \
-	     .join(product_sales_data, hierarchical_data.Product_key == product_sales_data.product_key,'inner') \
-	     .select(hierarchical_data.brand, hierarchical_data.Product_key, product_sales_data.sales)
-	print(joinandselect)
-	sumvalue = joinandselect.groupBy('brand').sum('sales')
+	hierarchical_data.createOrReplaceTempView("hierarchical_data")
+	product_sales_data.createOrReplaceTempView("product_sales_data")
+	sumvalue = spark.sql("SELECT brand, sum(sales) FROM hierarchical_data, product_sales_data WHERE hierarchical_data.Product_key == product_sales_data.product_key GROUP BY brand")
 	temp = filename()
 	sumvalue \
 	.coalesce(1) \
