@@ -1,0 +1,9 @@
+Char_name,Charkey,Current,Previous,Change_type
+brand,300,LG,LG_new,updated
+brand,200,Sharp,Sharp_ext,updated
+Category,300,refrigerators,refrigerators_new,updated
+Category,200,television,Wall Mounted Televison,updated
+Category,100,cooking appliances,cooking appliances Over the counter,updated
+Vertical,300,electronics,appliances,updated
+Vertical,400,electronics,appliances,updated
+Vertical,300,appliances,appliances_new,updated
