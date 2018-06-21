@@ -1,4 +1,5 @@
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
 import datetime
 from datetime import date
 #function to get filename as change_capture_weekoftheyear_yyyymmdd.csv
@@ -24,6 +25,8 @@ if __name__== "__main__":
 	
 	fakefriends.printSchema()
 	temp = filename()
-	avg_friends_by_age = fakefriends.groupBy('age').avg('no_of_friends')
+	avg_friends_by_age = fakefriends.groupBy('age') \
+				.avg('no_of_friends') \
+				.sort(col("age").asc())
 	avg_friends_by_age.coalesce(1).write.option("header","true").csv("output/"+temp)
 	

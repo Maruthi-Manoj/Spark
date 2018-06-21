@@ -25,6 +25,6 @@ if __name__== "__main__":
 	fakefriends.printSchema()
 	temp = filename()
         fakefriends.createOrReplaceTempView("fakefriends")
-	avg_friends_by_age = spark.sql("SELECT age, avg(no_of_friends) FROM fakefriends GROUP BY age ")		
+	avg_friends_by_age = spark.sql("SELECT age, avg(no_of_friends) FROM fakefriends GROUP BY age ORDER BY age ASC")		
 	avg_friends_by_age.coalesce(1).write.option("header","true").csv("output/"+temp)
 	
