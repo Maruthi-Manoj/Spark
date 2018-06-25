@@ -1,4 +1,4 @@
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession, Row
 #from pyspark.sql.types import *
 import datetime
 change_capture_schema = Row("Char_name", "Charkey", "Current", "Previous", "Change_type")
