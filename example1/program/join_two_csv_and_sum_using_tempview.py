@@ -1,6 +1,5 @@
 from pyspark.sql import SparkSession
 import datetime
-from datetime import date
 #function to get filename as join_two_csv_and_sum_using_tempview__weekoftheyear_yyyymmdd.csv
 def filename():
         temp = "join_two_csv_and_sum_using_tempview_"

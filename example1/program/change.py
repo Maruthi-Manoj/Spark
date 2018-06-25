@@ -1,7 +1,6 @@
-from pyspark.sql import SparkSession, Row
-from pyspark.sql.types import *
+from pyspark.sql import SparkSession
+#from pyspark.sql.types import *
 import datetime
-from datetime import date
 change_capture_schema = Row("Char_name", "Charkey", "Current", "Previous", "Change_type")
 #function to get filename as change_capture_weekoftheyear_yyyymmdd.csv
 def filename():
