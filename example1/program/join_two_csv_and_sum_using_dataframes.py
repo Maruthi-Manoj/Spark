@@ -1,6 +1,5 @@
 from pyspark.sql import SparkSession
 import datetime
-from datetime import date
 #function to get filename as change_capture_weekoftheyear_yyyymmdd.csv
 def filename():
         temp = "join_two_csv_and_aggregate_with_dataframes_"
