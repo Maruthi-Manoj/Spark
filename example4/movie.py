@@ -1,4 +1,4 @@
-from pyspark import SparkContext, SparkConf
+from pyspark import SparkContext
 # Get Item Id and Ratings from u.data file with additional counter value
 def getItemIdAndRatings(line):
     temp = line.split("\t")
